@@ -17,6 +17,11 @@ class AppTheme {
       side: BorderSide.none,
     ),
     scaffoldBackgroundColor: AppPallete.backgroundColor,
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppPallete.backgroundColor,
+      elevation: 0,
+      surfaceTintColor: AppPallete.backgroundColor,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: EdgeInsets.all(27),
       enabledBorder: _border(),
