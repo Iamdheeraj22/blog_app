@@ -1,6 +1,7 @@
 import 'package:blog_app/core/common/widgets/state_loading_view.dart';
 import 'package:blog_app/core/theme/app_pallete.dart';
 import 'package:blog_app/core/utils/snackbar_message.dart';
+import 'package:blog_app/features/authentication/domain/usercases/current_user.dart';
 
 import 'package:blog_app/features/authentication/presentation/bloc/auth_bloc.dart';
 import 'package:blog_app/features/authentication/presentation/pages/sign_up_page.dart';
@@ -15,6 +16,7 @@ class SignInPage extends StatefulWidget {
   static route() => MaterialPageRoute(
         builder: (_) => SignInPage(),
       );
+  static const String id = "/sign-in";
 
   const SignInPage({super.key});
 
@@ -35,6 +37,7 @@ class _SignInPageState extends State<SignInPage> {
           if (state is AuthFailure) {
             SnackBarMessage(context, message: state.message).show();
           } else if (state is AuthSuccess) {
+            context.read<AuthBloc>().add(AuthIsUserLoggedIn());
             Navigator.pushAndRemoveUntil(
                 context, BlogPage.route(), (route) => false);
           }

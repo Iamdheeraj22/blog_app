@@ -1,4 +1,5 @@
 import 'package:blog_app/core/common/app_user/app_user_cubit.dart';
+import 'package:blog_app/core/routes/navigation_routes.dart';
 import 'package:blog_app/core/theme/app_theme.dart';
 
 import 'package:blog_app/features/authentication/presentation/bloc/auth_bloc.dart';
@@ -44,6 +45,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         title: 'Blog App',
         debugShowCheckedModeBanner: false,
+        onGenerateRoute: NavigationRoutes.onGenerateRoute,
         theme: AppTheme.darkThemeMode,
         home: BlocSelector<AppUserCubit, AppUserState, bool>(
           selector: (state) {

@@ -46,9 +46,7 @@ class _BlogPageState extends State<BlogPage> {
               CupertinoIcons.profile_circled,
             ),
             onPressed: () {
-              Navigator.of(context).push(
-                ProfilePage.route(),
-              );
+              Navigator.pushNamed(context, ProfilePage.id);
             },
           )
         ],
