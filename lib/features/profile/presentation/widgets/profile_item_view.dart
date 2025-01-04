@@ -14,7 +14,7 @@ class ProfileItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
@@ -42,25 +42,3 @@ class ProfileItemView extends StatelessWidget {
     );
   }
 }
-
-/*
-* ListTile(
-      onTap: onTap,
-      tileColor: AppPallete.borderColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      contentPadding: EdgeInsets.only(right: 10, left: 10),
-      title: Text(
-        title,
-        style: TextStyle(
-          color: AppPallete.whiteColor,
-          fontSize: 14,
-        ),
-      ),
-      trailing: Icon(
-        Icons.arrow_forward_ios,
-        color: AppPallete.whiteColor,
-      ),
-    );
-* */
