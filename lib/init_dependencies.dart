@@ -14,6 +14,11 @@ import 'package:blog_app/features/blog/data/repositories/blog_repository_impl.da
 import 'package:blog_app/features/blog/domain/usercases/get_blogs.dart';
 import 'package:blog_app/features/blog/domain/usercases/upload_blog.dart';
 import 'package:blog_app/features/blog/presentation/bloc/blog_bloc.dart';
+import 'package:blog_app/features/profile/data/data_sources/profile_remote_data_source.dart';
+import 'package:blog_app/features/profile/data/repositories/profile_repository_impl.dart';
+import 'package:blog_app/features/profile/domain/repository/profile_repository.dart';
+import 'package:blog_app/features/profile/domain/usercase/user_logout.dart';
+import 'package:blog_app/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
