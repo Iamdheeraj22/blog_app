@@ -2,6 +2,7 @@ import 'package:blog_app/core/usecase/usecase.dart';
 import 'package:blog_app/features/profile/domain/usercase/user_logout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 
 part 'profile_event.dart';
 
@@ -22,7 +23,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     final result = await _userLogout(NoParams());
     result.fold(
       (failure) => emit(ProfileLogoutFailure(message: failure.message)),
-      (blog) => emit(ProfileLogoutSuccess()),
+      (result) {
+        if (result) {
+          Box box = Hive.box(name: 'blogs');
+          box.clear();
+          emit(ProfileLogoutSuccess());
+        }
+      },
     );
   }
 }
