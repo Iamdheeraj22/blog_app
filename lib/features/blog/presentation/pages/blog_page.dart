@@ -5,6 +5,7 @@ import 'package:blog_app/features/blog/presentation/pages/add_new_blog_page.dart
 import 'package:blog_app/features/blog/presentation/pages/blog_details_page.dart';
 import 'package:blog_app/features/blog/presentation/widgets/blog_card.dart';
 import 'package:blog_app/features/profile/presentation/pages/profile_page.dart';
+import 'package:blog_app/init_dependencies.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

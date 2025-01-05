@@ -23,10 +23,7 @@ class NavigationRoutes {
       case ProfilePage.id:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => BlocProvider(
-            create: (_) => serviceLocator<ProfileBloc>(),
-            child: ProfilePage(),
-          ),
+          builder: (_) => ProfilePage(),
         );
       default:
         return MaterialPageRoute(

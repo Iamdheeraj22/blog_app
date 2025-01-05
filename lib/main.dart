@@ -6,6 +6,7 @@ import 'package:blog_app/features/authentication/presentation/bloc/auth_bloc.dar
 import 'package:blog_app/features/authentication/presentation/pages/sign_in_page.dart';
 import 'package:blog_app/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:blog_app/features/blog/presentation/pages/blog_page.dart';
+import 'package:blog_app/features/profile/presentation/bloc/profile_bloc.dart';
 
 import 'package:blog_app/init_dependencies.dart';
 import 'package:flutter/material.dart';
@@ -27,37 +28,45 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (_) => serviceLocator<AppUserCubit>(),
-        ),
-        BlocProvider(
-          create: (_) => serviceLocator<AuthBloc>()
-            ..add(
-              AuthIsUserLoggedIn(),
-            ),
-        ),
-        BlocProvider(
-          create: (_) => serviceLocator<BlogBloc>(),
-        ),
-      ],
-      child: MaterialApp(
-        title: 'Blog App',
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: NavigationRoutes.onGenerateRoute,
-        theme: AppTheme.darkThemeMode,
-        home: BlocSelector<AppUserCubit, AppUserState, bool>(
-          selector: (state) {
-            return state is AppUserLoggedIn;
-          },
-          builder: (context, isLogged) {
-            if (isLogged) {
-              return BlogPage();
-            } else {
-              return SignInPage();
-            }
-          },
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => serviceLocator<AppUserCubit>(),
+          ),
+          BlocProvider(
+            create: (_) => serviceLocator<AuthBloc>()
+              ..add(
+                AuthIsUserLoggedIn(),
+              ),
+          ),
+          BlocProvider(
+            create: (_) => serviceLocator<BlogBloc>(),
+          ),
+          BlocProvider(
+            create: (_) => serviceLocator<ProfileBloc>(),
+          ),
+        ],
+        child: MaterialApp(
+          title: 'Blog App',
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: NavigationRoutes.onGenerateRoute,
+          theme: AppTheme.darkThemeMode,
+          home: BlocSelector<AppUserCubit, AppUserState, bool>(
+            selector: (state) {
+              return state is AppUserLoggedIn;
+            },
+            builder: (context, isLogged) {
+              if (isLogged) {
+                return BlogPage();
+              } else {
+                return SignInPage();
+              }
+            },
+          ),
         ),
       ),
     );
