@@ -37,9 +37,9 @@ class _BlogPageState extends State<BlogPage> {
         title: Text(
           'Blog App',
           style: TextStyle(
-              color: AppPallete.whiteColor,
-              fontSize: 24,
-              fontWeight: FontWeight.bold),
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         actions: [
           IconButton(

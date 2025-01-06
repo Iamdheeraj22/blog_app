@@ -38,9 +38,29 @@ class AppTheme {
       errorBorder: _border(AppPallete.redColor),
       focusedErrorBorder: _border(AppPallete.redColor),
     ),
-    textTheme: textTheme(color: AppPallete.whiteColor),
+    textTheme: textTheme(
+      color: AppPallete.whiteColor,
+    ),
+    listTileTheme: ListTileThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: BorderSide(
+          color: AppPallete.whiteColor,
+          width: 2,
+        ),
+      ),
+      titleTextStyle: TextStyle(
+        color: AppPallete.whiteColor,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    iconTheme: IconThemeData(
+      color: AppPallete.whiteColor,
+      size: 24,
+    ),
   );
-  static final lightThemMode = ThemeData.dark().copyWith(
+  static final lightThemMode = ThemeData.light().copyWith(
     chipTheme: ChipThemeData(
       color: WidgetStatePropertyAll(
         AppPallete.blackColor,
@@ -69,7 +89,27 @@ class AppTheme {
       errorBorder: _border(AppPallete.redColor),
       focusedErrorBorder: _border(AppPallete.redColor),
     ),
-    textTheme: textTheme(color: AppPallete.blackColor),
+    textTheme: textTheme(
+      color: AppPallete.blackColor,
+    ),
+    listTileTheme: ListTileThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: BorderSide(
+          color: AppPallete.blackColor,
+          width: 2,
+        ),
+      ),
+      titleTextStyle: TextStyle(
+        color: AppPallete.blackColor,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    iconTheme: IconThemeData(
+      color: AppPallete.blackColor,
+      size: 24,
+    ),
   );
 }
 

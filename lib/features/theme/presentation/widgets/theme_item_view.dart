@@ -14,9 +14,27 @@ class ThemeItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Card(
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      child: ListTile(
+        style: ListTileStyle.list,
+        onTap: onTap,
+        title: Text(
+          title,
+          style: TextStyle(fontSize: 16),
+        ),
+        trailing: isSelected
+            ? Icon(
+                Icons.check,
+                size: 24,
+              )
+            : null,
+      ),
+    );
+  }
+}
+/*
+* Card(
         margin: EdgeInsets.symmetric(horizontal: 10),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
@@ -42,6 +60,4 @@ class ThemeItemView extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
+* */

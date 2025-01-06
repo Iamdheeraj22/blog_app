@@ -17,7 +17,15 @@ class BlogDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+          blog.title,
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Scrollbar(
@@ -28,7 +36,7 @@ class BlogDetailsPage extends StatelessWidget {
                 Text(
                   blog.title,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

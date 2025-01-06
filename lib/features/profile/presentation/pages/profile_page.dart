@@ -64,10 +64,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   Container(
                     width: double.infinity,
                     padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppPallete.borderColor,
-                    ),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -93,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             errorWidget: (context, url, error) =>
                                 UserProfileErrorView()),
                         SizedBox(
-                          width: 10,
+                          width: 15,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,27 +98,19 @@ class _ProfilePageState extends State<ProfilePage> {
                             Text(
                               _name,
                               style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: AppPallete.whiteColor,
+                                fontSize: 16,
                               ),
                             ),
                             Text(
                               _email,
                               style: TextStyle(
                                 fontSize: 12,
-                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ],
                         ),
                       ],
                     ),
-                  ),
-                  //Divider
-                  Divider(
-                    color: AppPallete.borderColor,
-                    thickness: 1,
                   ),
 
                   ProfileItemView(

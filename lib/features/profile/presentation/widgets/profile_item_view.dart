@@ -13,28 +13,23 @@ class ProfileItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(10),
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: AppPallete.borderColor,
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               title,
               style: TextStyle(
-                color: AppPallete.whiteColor,
-                fontSize: 14,
+                fontSize: 16,
               ),
             ),
             Icon(
               Icons.arrow_forward_ios,
-              color: AppPallete.whiteColor,
-              size: 16,
+              size: 24,
             ),
           ],
         ),
