@@ -31,6 +31,10 @@ Future<void> initDependencies() async {
     () => AppUserCubit(),
   );
 
+  serviceLocator.registerLazySingleton(
+    () => AppThemeCubit(),
+  );
+
   serviceLocator.registerFactory<InternetConnectionChecker>(
     () => InternetConnectionCheckerImpl(
       connection: serviceLocator(),
