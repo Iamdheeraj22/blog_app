@@ -1,7 +1,7 @@
 import 'package:blog_app/core/common/app_user/app_user_cubit.dart';
 import 'package:blog_app/core/routes/navigation_routes.dart';
+import 'package:blog_app/core/storage/app_user_local_storage.dart';
 import 'package:blog_app/core/theme/app_theme.dart';
-
 import 'package:blog_app/features/authentication/presentation/bloc/auth_bloc.dart';
 import 'package:blog_app/features/authentication/presentation/pages/sign_in_page.dart';
 import 'package:blog_app/features/blog/presentation/bloc/blog_bloc.dart';
@@ -15,11 +15,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initDependencies();
-  runApp(MyApp());
+  final isUserLoggedIn = AppUserLocalStorage().isUserLoggedIn();
+  runApp(MyApp(
+    isUserLoggedIn: isUserLoggedIn,
+  ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.isUserLoggedIn});
+
+  final bool isUserLoggedIn;
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -55,18 +60,7 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           onGenerateRoute: NavigationRoutes.onGenerateRoute,
           theme: AppTheme.darkThemeMode,
-          home: BlocSelector<AppUserCubit, AppUserState, bool>(
-            selector: (state) {
-              return state is AppUserLoggedIn;
-            },
-            builder: (context, isLogged) {
-              if (isLogged) {
-                return BlogPage();
-              } else {
-                return SignInPage();
-              }
-            },
-          ),
+          home: widget.isUserLoggedIn ? BlogPage() : SignInPage(),
         ),
       ),
     );
