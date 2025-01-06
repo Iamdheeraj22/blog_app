@@ -1,3 +1,4 @@
+import 'package:blog_app/core/common/app_theme/app_theme_cubit.dart';
 import 'package:blog_app/core/common/app_user/app_user_cubit.dart';
 import 'package:blog_app/core/routes/navigation_routes.dart';
 import 'package:blog_app/core/storage/app_user_local_storage.dart';
@@ -37,6 +38,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (_) => serviceLocator<AppUserCubit>(),
+          ),
+          BlocProvider(
+            create: (_) => serviceLocator<AppThemeCubit>()..fetchTheme(),
           ),
           BlocProvider(
             create: (_) => serviceLocator<AuthBloc>()
