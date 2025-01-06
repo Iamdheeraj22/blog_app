@@ -7,6 +7,8 @@ import 'package:blog_app/features/authentication/presentation/pages/sign_in_page
 import 'package:blog_app/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:blog_app/features/profile/presentation/widgets/logout_view.dart';
 import 'package:blog_app/features/profile/presentation/widgets/profile_item_view.dart';
+
+import 'package:blog_app/features/theme/presentation/pages/theme_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -131,7 +133,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     height: 10,
                   ),
                   ProfileItemView(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, ThemePage.id);
+                    },
                     title: 'Theme',
                   ),
                   SizedBox(

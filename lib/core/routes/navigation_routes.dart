@@ -1,6 +1,8 @@
 import 'package:blog_app/features/authentication/presentation/pages/sign_in_page.dart';
 import 'package:blog_app/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:blog_app/features/profile/presentation/pages/profile_page.dart';
+
+import 'package:blog_app/features/theme/presentation/pages/theme_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,6 +26,11 @@ class NavigationRoutes {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => ProfilePage(),
+        );
+      case ThemePage.id:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => ThemePage(),
         );
       default:
         return MaterialPageRoute(
