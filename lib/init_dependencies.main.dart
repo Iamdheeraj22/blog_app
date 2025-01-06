@@ -15,8 +15,12 @@ Future<void> initDependencies() async {
   serviceLocator.registerLazySingleton(
     () => supabaseClient.client,
   );
+
   serviceLocator.registerLazySingleton(
-    () => Hive.box(name: 'blogs'),
+    () => UserHiveBox(Hive.box(name: 'user')),
+  );
+  serviceLocator.registerLazySingleton(
+    () => BlogHiveBoxModel(Hive.box(name: 'blogs')),
   );
 
   serviceLocator.registerFactory(
@@ -84,7 +88,7 @@ void _initBlog() {
   );
   serviceLocator.registerFactory<BlogLocalDataSource>(
     () => BlogLocalDataSourceImpl(
-      box: serviceLocator(),
+      blogsBox: serviceLocator(),
     ),
   );
 

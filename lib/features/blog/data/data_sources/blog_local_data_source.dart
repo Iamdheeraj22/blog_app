@@ -1,4 +1,6 @@
+import 'package:blog_app/features/blog/data/model/blog_hive_box_model.dart';
 import 'package:blog_app/features/blog/data/model/blog_model.dart';
+import 'package:blog_app/init_dependencies.dart';
 import 'package:hive/hive.dart';
 
 abstract interface class BlogLocalDataSource {
@@ -8,19 +10,19 @@ abstract interface class BlogLocalDataSource {
 }
 
 class BlogLocalDataSourceImpl implements BlogLocalDataSource {
-  final Box box;
+  final BlogHiveBoxModel blogsBox;
 
-  BlogLocalDataSourceImpl({required this.box});
+  BlogLocalDataSourceImpl({required this.blogsBox});
 
   @override
   List<BlogModel> getLocalBlogs() {
     List<BlogModel> blogs = [];
 
-    box.read(() {
-      for (int i = 0; i < box.length; i++) {
+    blogsBox.box.read(() {
+      for (int i = 0; i < blogsBox.box.length; i++) {
         blogs.add(
           BlogModel.fromJson(
-            box.get(
+            blogsBox.box.get(
               i.toString(),
             ),
           ),
@@ -32,10 +34,10 @@ class BlogLocalDataSourceImpl implements BlogLocalDataSource {
 
   @override
   void uploadLocalBlogs({required List<BlogModel> blogs}) {
-    box.clear();
-    box.write(() {
+    blogsBox.box.clear();
+    blogsBox.box.write(() {
       for (int i = 0; i < blogs.length; i++) {
-        box.put(i.toString(), blogs[i].toJson());
+        blogsBox.box.put(i.toString(), blogs[i].toJson());
       }
     });
   }

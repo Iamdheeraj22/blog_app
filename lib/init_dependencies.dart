@@ -1,4 +1,5 @@
 import 'package:blog_app/core/common/app_user/app_user_cubit.dart';
+import 'package:blog_app/core/common/entity/user_hive_box.dart';
 import 'package:blog_app/core/secrets/app_secrets.dart';
 import 'package:blog_app/core/utils/internet_connection_checker.dart';
 import 'package:blog_app/features/authentication/data/data_sources/auth_remote_data_source.dart';
@@ -10,6 +11,7 @@ import 'package:blog_app/features/authentication/domain/usercases/user_sign_up.d
 import 'package:blog_app/features/authentication/presentation/bloc/auth_bloc.dart';
 import 'package:blog_app/features/blog/data/data_sources/blog_local_data_source.dart';
 import 'package:blog_app/features/blog/data/data_sources/blog_remote_data_source.dart';
+import 'package:blog_app/features/blog/data/model/blog_hive_box_model.dart';
 import 'package:blog_app/features/blog/data/repositories/blog_repository_impl.dart';
 import 'package:blog_app/features/blog/domain/usercases/get_blogs.dart';
 import 'package:blog_app/features/blog/domain/usercases/upload_blog.dart';
