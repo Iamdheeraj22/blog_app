@@ -27,13 +27,11 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      final userCubit = context.read<AppUserCubit>().state as AppUserLoggedIn;
-      _name = userCubit.user.name;
-      _email = userCubit.user.email;
-      _profile = userCubit.user.userProfile ?? '';
-      setState(() {});
-    });
+    final userCubit = context.read<AppUserCubit>().state as AppUserLoggedIn;
+    _name = userCubit.user.name;
+    _email = userCubit.user.email;
+    _profile = userCubit.user.userProfile ?? '';
+    setState(() {});
     super.initState();
   }
 

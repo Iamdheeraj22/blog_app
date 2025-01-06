@@ -9,6 +9,7 @@ import 'package:blog_app/features/blog/presentation/pages/blog_page.dart';
 import 'package:blog_app/features/profile/presentation/bloc/profile_bloc.dart';
 
 import 'package:blog_app/init_dependencies.dart';
+import 'package:blog_app/main_app_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,16 +22,11 @@ void main() async {
   ));
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.isUserLoggedIn});
 
   final bool isUserLoggedIn;
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -55,12 +51,8 @@ class _MyAppState extends State<MyApp> {
             create: (_) => serviceLocator<ProfileBloc>(),
           ),
         ],
-        child: MaterialApp(
-          title: 'Blog App',
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: NavigationRoutes.onGenerateRoute,
-          theme: AppTheme.darkThemeMode,
-          home: widget.isUserLoggedIn ? BlogPage() : SignInPage(),
+        child: MainAppPage(
+          isLoggedIn: isUserLoggedIn,
         ),
       ),
     );
