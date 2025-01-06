@@ -36,9 +36,7 @@ class AuthGradientBtn extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 17,
-            color: AppPallete.whiteColor,
-            fontWeight: FontWeight.w600,
+            fontSize: 16,
           ),
         ),
       ),

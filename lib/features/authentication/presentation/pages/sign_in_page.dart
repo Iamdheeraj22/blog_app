@@ -5,6 +5,7 @@ import 'package:blog_app/features/authentication/domain/usercases/current_user.d
 
 import 'package:blog_app/features/authentication/presentation/bloc/auth_bloc.dart';
 import 'package:blog_app/features/authentication/presentation/pages/sign_up_page.dart';
+import 'package:blog_app/features/authentication/presentation/widgets/app_theme_switcher.dart';
 import 'package:blog_app/features/authentication/presentation/widgets/auth_field_view.dart';
 import 'package:blog_app/features/authentication/presentation/widgets/auth_gradient_btn.dart';
 import 'package:blog_app/features/blog/presentation/pages/blog_page.dart';
@@ -32,6 +33,11 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          AppThemeSwitcher(),
+        ],
+      ),
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthFailure) {
@@ -55,8 +61,7 @@ class _SignInPageState extends State<SignInPage> {
                     Text(
                       "Sign In.",
                       style: TextStyle(
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 57,
                       ),
                     ),
                     SizedBox(
