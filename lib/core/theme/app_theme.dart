@@ -59,6 +59,17 @@ class AppTheme {
       color: AppPallete.whiteColor,
       size: 24,
     ),
+    dialogTheme: DialogTheme(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      backgroundColor: AppPallete.whiteColor,
+      titleTextStyle: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: AppPallete.whiteColor,
+      ),
+    ),
   );
   static final lightThemMode = ThemeData.light().copyWith(
     chipTheme: ChipThemeData(
@@ -109,6 +120,17 @@ class AppTheme {
     iconTheme: IconThemeData(
       color: AppPallete.blackColor,
       size: 24,
+    ),
+    dialogTheme: DialogTheme(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      backgroundColor: AppPallete.whiteColor,
+      titleTextStyle: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: AppPallete.blackColor,
+      ),
     ),
   );
 }

@@ -13,18 +13,13 @@ class LogoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: AppPallete.backgroundColor,
       title: Center(
         child: Text(
           'See you soon!',
           style: TextStyle(
             fontSize: 24,
-            fontWeight: FontWeight.bold,
           ),
         ),
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
       ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
