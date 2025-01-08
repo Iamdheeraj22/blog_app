@@ -28,7 +28,7 @@ class LogoutView extends StatelessWidget {
             textAlign: TextAlign.center,
             'You are about to logout from the app.\nAre you sure this is what\nyou want?',
             style: TextStyle(
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: FontWeight.w400,
             ),
           ),

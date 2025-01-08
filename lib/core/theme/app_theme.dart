@@ -67,7 +67,12 @@ class AppTheme {
       titleTextStyle: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.bold,
-        color: AppPallete.whiteColor,
+        color: AppPallete.blackColor,
+      ),
+      contentTextStyle: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.bold,
+        color: AppPallete.blackColor,
       ),
     ),
   );
@@ -128,6 +133,11 @@ class AppTheme {
       backgroundColor: AppPallete.whiteColor,
       titleTextStyle: TextStyle(
         fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: AppPallete.blackColor,
+      ),
+      contentTextStyle: TextStyle(
+        fontSize: 12,
         fontWeight: FontWeight.bold,
         color: AppPallete.blackColor,
       ),

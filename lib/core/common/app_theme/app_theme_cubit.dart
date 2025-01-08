@@ -5,16 +5,16 @@ import 'package:hive/hive.dart';
 part 'app_theme_state.dart';
 
 class AppThemeCubit extends Cubit<AppThemeState> {
-  AppThemeCubit() : super(AppThemeInitial());
+  AppThemeCubit() : super(AppThemeState());
   final box = Hive.box(name: 'user');
 
   void updateTheme(int themeIndex) {
     box.put('themeIndex', themeIndex);
-    emit(AppThemeChange(themeIndex: themeIndex));
+    emit(AppThemeState(themeIndex: themeIndex));
   }
 
   Future<void> fetchTheme() async {
     final themeIndex = await box.get('themeIndex', defaultValue: 0);
-    emit(AppThemeChange(themeIndex: themeIndex));
+    emit(AppThemeState(themeIndex: themeIndex));
   }
 }

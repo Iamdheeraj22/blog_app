@@ -9,7 +9,6 @@ class AppThemeSwitcher extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AppThemeCubit, AppThemeState>(
       builder: (context, state) {
-        int theme = (state as AppThemeChange).themeIndex;
         return Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
@@ -27,7 +26,7 @@ class AppThemeSwitcher extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                    border: theme == 0
+                    border: state.themeIndex == 0
                         ? Border.all(
                             color: Colors.grey,
                             width: 1,
@@ -49,7 +48,7 @@ class AppThemeSwitcher extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                    border: theme == 1
+                    border: state.themeIndex == 1
                         ? Border.all(
                             color: Colors.grey,
                             width: 1,

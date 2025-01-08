@@ -35,14 +35,14 @@ class _ThemePageState extends State<ThemePage> {
                   onTap: () {
                     context.read<AppThemeCubit>().updateTheme(1);
                   },
-                  isSelected: state is AppThemeChange && state.themeIndex == 1,
+                  isSelected: state.themeIndex == 1,
                 ),
                 ThemeItemView(
                   title: 'Light',
                   onTap: () {
                     context.read<AppThemeCubit>().updateTheme(0);
                   },
-                  isSelected: state is AppThemeChange && state.themeIndex == 0,
+                  isSelected: state.themeIndex == 0,
                 ),
               ],
             ),

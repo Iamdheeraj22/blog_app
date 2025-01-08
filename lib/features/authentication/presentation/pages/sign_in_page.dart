@@ -8,6 +8,7 @@ import 'package:blog_app/features/authentication/presentation/pages/sign_up_page
 import 'package:blog_app/features/authentication/presentation/widgets/app_theme_switcher.dart';
 import 'package:blog_app/features/authentication/presentation/widgets/auth_field_view.dart';
 import 'package:blog_app/features/authentication/presentation/widgets/auth_gradient_btn.dart';
+import 'package:blog_app/features/authentication/presentation/widgets/auth_text_btn.dart';
 import 'package:blog_app/features/blog/presentation/pages/blog_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -98,30 +99,16 @@ class _SignInPageState extends State<SignInPage> {
                     SizedBox(
                       height: 30,
                     ),
-                    RichText(
-                      text: TextSpan(
-                        text: "Don't have an account? ",
-                        children: [
-                          TextSpan(
-                            text: "Sign Up",
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                  color: AppPallete.gradient2,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.push(
-                                  context,
-                                  SignUpPage.route(),
-                                );
-                              },
-                          ),
-                        ],
-                      ),
-                    )
+                    AuthTextBtn(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          SignUpPage.route(),
+                        );
+                      },
+                      title: "Don't have an account? ",
+                      subTitle: "Sign Up",
+                    ),
                   ],
                 ),
               ),

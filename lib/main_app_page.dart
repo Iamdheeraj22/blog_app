@@ -36,7 +36,7 @@ class _MainAppPageState extends State<MainAppPage> {
           title: 'Blog App',
           debugShowCheckedModeBanner: false,
           onGenerateRoute: NavigationRoutes.onGenerateRoute,
-          theme: state is AppThemeChange && state.themeIndex == 0
+          theme: state.themeIndex == 0
               ? AppTheme.lightThemMode
               : AppTheme.darkThemeMode,
           home: widget.isLoggedIn ? BlogPage() : SignInPage(),

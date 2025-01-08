@@ -5,6 +5,7 @@ import 'package:blog_app/core/utils/snackbar_message.dart';
 import 'package:blog_app/features/authentication/presentation/bloc/auth_bloc.dart';
 import 'package:blog_app/features/authentication/presentation/widgets/auth_field_view.dart';
 import 'package:blog_app/features/authentication/presentation/widgets/auth_gradient_btn.dart';
+import 'package:blog_app/features/authentication/presentation/widgets/auth_text_btn.dart';
 import 'package:blog_app/features/blog/presentation/pages/blog_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -53,8 +54,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     Text(
                       "Sign Up.",
                       style: TextStyle(
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 57,
                       ),
                     ),
                     SizedBox(
@@ -102,27 +102,16 @@ class _SignUpPageState extends State<SignUpPage> {
                     SizedBox(
                       height: 20,
                     ),
-                    RichText(
-                      text: TextSpan(
-                        text: "Already have an account? ",
-                        children: [
-                          TextSpan(
-                            text: "Sign In",
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                  color: AppPallete.gradient2,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.pop(context);
-                              },
-                          ),
-                        ],
-                      ),
-                    )
+                    AuthTextBtn(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          SignUpPage.route(),
+                        );
+                      },
+                      title: "Already have an account? ",
+                      subTitle: "Sign In",
+                    ),
                   ],
                 ),
               ),
